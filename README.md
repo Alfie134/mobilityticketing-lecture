@@ -38,7 +38,7 @@ docker compose up -d
 3. Add at least two trips per route on the same service date.
 4. Complete the three query skeletons.
 5. Compare the SQL model with your ER diagram.
-6. Record one assumption that may change later in `docs/dossier.md`.
+6. Record one assumption that may change later in `docs/notes.md`.
 
 Do not add MongoDB, Redis, queues, payment logic, validation logic, reporting tables, or performance indexes in this first slice.
 
