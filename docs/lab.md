@@ -4,10 +4,6 @@
 
 Build the smallest relational model that supports route maintenance and upcoming-trip queries. The implementation is not expected to represent the complete MobilityTicketing platform. It should make your modelling assumptions executable.
 
-## Timebox
-
-Approximately 90 minutes.
-
 ## Work in this lecture
 
 1. Create tables for operators, routes, stops, route stops, and trips.
