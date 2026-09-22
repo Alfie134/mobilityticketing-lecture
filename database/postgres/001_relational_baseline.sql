@@ -23,6 +23,16 @@ create table route_stops (
     stop_sequence integer not null,
     -- TODO: choose and add the primary key.
     -- Explain whether a stop may occur more than once on the same route.
+
+    -- Primary key is (route_id, stop_sequence): a "route stop" is really a
+    -- position along a route, not a route/stop pair. Keying on
+    -- (route_id, stop_id) instead would make it impossible for a route to
+    -- call at the same physical stop twice (loop routes, out-and-back
+    -- routes that pass the same stop on both legs), which is a real pattern
+    -- for city bus/tram lines. Keying on (route_id, stop_sequence) allows a
+    -- stop_id to repeat within a route while still guaranteeing each
+    -- position on the route is unique and ordered.
+    constraint route_stops_pk primary key (route_id, stop_sequence),
     constraint route_stops_sequence_positive check (stop_sequence > 0)
 );
 

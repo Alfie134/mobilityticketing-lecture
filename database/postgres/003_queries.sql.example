@@ -10,7 +10,29 @@ order by t.scheduled_departure_utc
 limit 20;
 
 -- Query 2: ordered route stops
--- TODO: join route_stops to stops and order by stop_sequence.
+-- Show the ordered stops belonging to a route.
+select
+    rs.stop_sequence,
+    s.id as stop_id,
+    s.name
+from route_stops rs
+join stops s on s.id = rs.stop_id
+where rs.route_id = :route_id
+order by rs.stop_sequence;
 
 -- Query 3: routes and trip count, including routes with zero trips
--- TODO: preserve routes with no matching trips for the supplied service date.
+-- Show all routes and the number of scheduled trips on a supplied
+-- service date, including routes with no trips.
+-- The service_date filter lives in the JOIN condition, not a WHERE clause,
+-- so that a left join preserves routes with zero matching trips instead of
+-- being filtered back down to an inner join.
+select
+    r.id as route_id,
+    r.short_name,
+    count(t.id) as trip_count
+from routes r
+left join trips t
+    on t.route_id = r.id
+    and t.service_date = :service_date
+group by r.id, r.short_name
+order by r.id;
