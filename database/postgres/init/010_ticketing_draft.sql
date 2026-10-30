@@ -1,4 +1,4 @@
-alter tabele trips
+alter table trips
     add column capacity integer,
     add column reserved_seats integer default 0;
 
@@ -29,7 +29,7 @@ create table tickets (
     currency text
 );
 
-reate table payments (
+create table payments (
     id text primary key,
     user_id text,
     ticket_id text,

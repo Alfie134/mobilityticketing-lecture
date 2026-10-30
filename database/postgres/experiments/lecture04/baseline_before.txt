@@ -1,0 +1,11 @@
+ id | product_code 
+----+--------------
+(0 rows)
+
+    id    | product_code | price | currency 
+----------+--------------+-------+----------
+ TICKET-1 | SINGLE       | 36.00 | DKK
+ TICKET-2 | SINGLE       | 36.00 | DKK
+ TICKET-3 | DAY          | 80.00 | DKK
+(3 rows)
+

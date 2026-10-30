@@ -20,7 +20,7 @@ create table stops (
 create table route_stops (
     route_id text not null references routes(id),
     stop_id text not null references stops(id),
-    stop_sequence integer not null,.
+    stop_sequence integer not null,
     -- Primary key is (route_id, stop_sequence): a "route stop" is really a
     -- position along a route, not a route/stop pair. Keying on
     -- (route_id, stop_id) instead would make it impossible for a route to

@@ -1,0 +1,9 @@
+BEGIN
+ALTER TABLE
+SAVEPOINT
+ROLLBACK
+ERROR:  column "product_id" of relation "tickets" contains null values
+ERROR:  column "product_code" does not exist
+LINE 1: select id, product_code, price, currency from tickets order ...
+                   ^
+ROLLBACK

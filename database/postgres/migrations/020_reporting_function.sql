@@ -20,6 +20,6 @@ as $$
     join trips tr on tr.id = t.trip_id
     join routes r on r.id = tr.route_id
     where r.operator_id = requested_operator_id
-      and p.created_utc::date = requested_date
-      and p.status = 'Captured';
+        and p.created_utc::date = requested_date
+        and p.status = 'Captured';
 $$;
