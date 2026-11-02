@@ -8,4 +8,4 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./database/postgres:/docker-entrypoint-initdb.d:ro
+      - ./database/postgres/init:/docker-entrypoint-initdb.d:ro
